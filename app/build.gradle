@@ -76,17 +76,17 @@ dependencies {
     implementation "com.google.android.gms:play-services-auth-base:$rootProject.ext.gmsVersion"
     implementation "com.google.android.gms:play-services-auth-api-phone:$rootProject.ext.gmsVersion"
     implementation "com.google.android.gms:play-services-auth:$rootProject.ext.gmsVersion"
-    implementation "com.google.android.gms:play-services-cast:16.0.1"
-    implementation "com.google.android.gms:play-services-cast-framework:16.0.1"
+    implementation 'com.google.android.gms:play-services-cast:16.0.1'
+    implementation 'com.google.android.gms:play-services-cast-framework:16.0.1'
     implementation "com.google.android.gms:play-services-iid:$rootProject.ext.gmsVersion"
-    implementation "com.google.android.gms:play-services-instantapps:16.0.0"
+    implementation 'com.google.android.gms:play-services-instantapps:16.0.0'
     implementation "com.google.android.gms:play-services-gcm:$rootProject.ext.gmsVersion"
     implementation "com.google.android.gms:play-services-location:$rootProject.ext.gmsVersion"
     implementation "com.google.android.gms:play-services-vision:$rootProject.ext.gmsVersion"
     implementation "com.google.android.gms:play-services-vision-common:$rootProject.ext.gmsVersion"
     implementation "com.google.android.gms:play-services-fido:$rootProject.ext.gmsVersion"
     implementation "com.google.vr:sdk-base:$rootProject.ext.googleVRVersion"
-    implementation "com.google.ar:core:1.6.0"
+    implementation 'com.google.ar:core:1.6.0'
     implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.code.findbugs:jsr305:3.0.2'
@@ -108,4 +108,5 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    implementation project(':onboarding')
 }
