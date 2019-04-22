@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatDelegate;
 
+import com.wasla.onboarding.integration.Onboarding;
+
 import org.chromium.base.ActivityState;
 import org.chromium.base.ApplicationState;
 import org.chromium.base.ApplicationStatus;
@@ -63,6 +65,7 @@ public class ChromeApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Onboarding.integrateWith(this);
         FontPreloadingWorkaround.maybeInstallWorkaround(this);
     }
 

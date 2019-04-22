@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ class OnboardingIntegration extends DefaultLifecycleCallbacks {
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
         final IntentFilter intentFilter = new IntentFilter(ACTION_FINISH_COMPLETE);
         activity.registerReceiver(onFinishCompleteReceiver, intentFilter);
-        if (activities.isEmpty()) {
+        if (activities.isEmpty() && activity instanceof FragmentActivity) {
             activities.push(supportOnboarding(activity));
         }
     }
