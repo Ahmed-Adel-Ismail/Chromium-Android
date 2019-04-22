@@ -6,7 +6,6 @@ import android.content.Context;
 import com.wasla.onboarding.domain.gateways.PreferencesGatewayImplementer;
 import com.wasla.onboarding.domain.repositories.OnboardingRepositoryImplementer;
 import com.wasla.onboarding.domain.usecases.OnboardingCompleteCheckerUseCase;
-import com.wasla.onboarding.entities.InternalSdk;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -20,8 +19,6 @@ import io.reactivex.functions.Consumer;
  */
 public class Onboarding {
 
-
-
     /**
      * integrate the on-boarding feature with the passed application
      *
@@ -29,8 +26,7 @@ public class Onboarding {
      */
     @SuppressWarnings({"CheckResult", "ResultOfMethodCallIgnored"})
     public static void integrateWith(Application application) {
-        isCompleted(application)
-                .subscribe(doNothing(), registerCallbacks(application));
+        isCompleted(application).subscribe(doNothing(), registerCallbacks(application));
     }
 
     /**

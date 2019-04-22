@@ -50,7 +50,7 @@ class OnboardingViewModelFactory implements ViewModelProvider.Factory {
 
     private final OnboardingRepository repository;
 
-    public OnboardingViewModelFactory(Context context) {
+    OnboardingViewModelFactory(Context context) {
         this.repository = new OnboardingRepositoryImplementer(new PreferencesGatewayImplementer(context));
     }
 
