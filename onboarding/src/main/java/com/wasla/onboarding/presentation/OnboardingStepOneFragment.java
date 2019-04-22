@@ -31,6 +31,12 @@ public class OnboardingStepOneFragment extends Fragment {
 
     private final CompositeDisposable disposables = new CompositeDisposable();
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(false);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -1,6 +1,7 @@
 package com.wasla.onboarding.presentation;
 
 import android.arch.lifecycle.ViewModel;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -38,6 +39,15 @@ class PagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return fragments.size();
+    }
+
+    @Override
+    public void restoreState(Parcelable state, ClassLoader loader) {
+        try{
+            super.restoreState(state, loader);
+        }catch (NullPointerException e){
+            // eat exception
+        }
     }
 }
 

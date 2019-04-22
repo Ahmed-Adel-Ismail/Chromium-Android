@@ -16,7 +16,7 @@ class FragmentTransaction implements RxConsumer3<ActivityRetriever, View, Onboar
         return viewGroup -> fragment -> activityRetriever.apply(viewGroup)
                 .getSupportFragmentManager()
                 .beginTransaction()
-                .replace(viewGroup.getId(), fragment)
-                .commitAllowingStateLoss();
+                .replace(viewGroup.getId(), fragment, Onboarding.FRAGMENT_TAG)
+                .commitNowAllowingStateLoss();
     }
 }

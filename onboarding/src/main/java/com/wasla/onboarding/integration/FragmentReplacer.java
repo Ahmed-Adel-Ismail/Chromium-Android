@@ -15,6 +15,7 @@ import io.reactivex.disposables.Disposable;
  */
 class FragmentReplacer implements RxFunction3<ActivityRetriever, FragmentTransaction, View, Disposable> {
 
+
     @Override
     public RxBiFunction<FragmentTransaction, View, Disposable> apply(ActivityRetriever retriever) {
         return transaction -> viewGroup -> Single.just(viewGroup)
@@ -22,7 +23,7 @@ class FragmentReplacer implements RxFunction3<ActivityRetriever, FragmentTransac
                 .map(ViewModelProviders::of)
                 .map(provider -> provider.get(OnboardingHolder.class))
                 .map(OnboardingHolder::getFragment)
-                .subscribe(transaction.apply(retriever).apply(viewGroup), Throwable::printStackTrace);
+                .subscribe(transaction.apply(retriever).apply(viewGroup),Throwable::printStackTrace);
     }
 
 }

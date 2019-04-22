@@ -1,6 +1,5 @@
 package com.wasla.onboarding.presentation;
 
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,12 +23,17 @@ import io.reactivex.disposables.Disposable;
 
 import static com.wasla.onboarding.presentation.OnboardingFragment.ACTION_FINISH;
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 @InternalSdk
 public class OnboardingStepTwoFragment extends Fragment {
 
     private final CompositeDisposable disposables = new CompositeDisposable();
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(false);
+    }
 
     @Nullable
     @Override

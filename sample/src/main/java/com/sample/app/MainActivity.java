@@ -17,16 +17,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_two);
 
-        Onboarding.onComplete(this)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnComplete(() -> Toast.makeText(this, "completed", Toast.LENGTH_LONG).show())
-                .doOnError(e -> Toast.makeText(this, "not-complete", Toast.LENGTH_LONG).show())
-                .doOnError(e -> Onboarding.into(findViewById(R.id.fragment_container_layout)))
-                .onErrorComplete()
-                .subscribe();
+
 
     }
 }
