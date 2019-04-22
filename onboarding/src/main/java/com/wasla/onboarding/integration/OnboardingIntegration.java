@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -23,7 +24,6 @@ import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
@@ -31,7 +31,7 @@ import static com.wasla.onboarding.presentation.OnboardingFragment.ACTION_FINISH
 
 class OnboardingIntegration extends DefaultLifecycleCallbacks {
 
-
+    private static final String TAG = "ONBOARDING_INTEGRATION";
     private final LinkedList<Activity> activities = new LinkedList<>();
     private final CompositeDisposable disposables = new CompositeDisposable();
 
@@ -66,21 +66,19 @@ class OnboardingIntegration extends DefaultLifecycleCallbacks {
         return Onboarding.isCompleted(activity)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnComplete(logCompleted(activity))
-                .doOnError(logNonComplete(activity))
+                .doOnComplete(this::logCompleted)
+                .doOnError(this::logNonComplete)
                 .doOnError(Curry.toConsumer(this::attachOnboardingFragment, activity))
                 .onErrorComplete()
                 .subscribe();
     }
 
-    @NotNull
-    private Action logCompleted(Activity activity) {
-        return () -> Toast.makeText(activity, "onboarding completed", Toast.LENGTH_LONG).show();
+    private void logNonComplete(Throwable error) {
+        Log.w(TAG, "onboarding not completed yet : " + error.getMessage());
     }
 
-    @NotNull
-    private Consumer<Throwable> logNonComplete(Activity activity) {
-        return e -> Toast.makeText(activity, "onboarding not-complete", Toast.LENGTH_LONG).show();
+    private void logCompleted() {
+        Log.w(TAG, "onboarding completed");
     }
 
     private void attachOnboardingFragment(Activity activity, Throwable error) {
