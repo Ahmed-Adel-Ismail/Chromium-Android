@@ -27,6 +27,8 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.wasla.onboarding.presentation.OnboardingFragment.ACTION_FINISH_COMPLETE;
+
 class OnboardingIntegration extends DefaultLifecycleCallbacks {
 
 
@@ -48,7 +50,7 @@ class OnboardingIntegration extends DefaultLifecycleCallbacks {
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        final IntentFilter intentFilter = new IntentFilter(Onboarding.ACTION_FINISH_COMPLETE);
+        final IntentFilter intentFilter = new IntentFilter(ACTION_FINISH_COMPLETE);
         activity.registerReceiver(onFinishCompleteReceiver, intentFilter);
         if (activities.isEmpty()) {
             activities.push(supportOnboarding(activity));

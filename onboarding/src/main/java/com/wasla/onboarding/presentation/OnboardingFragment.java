@@ -38,6 +38,7 @@ public class OnboardingFragment extends Fragment {
 
     public static final String ACTION_NEXT = "ACTION_NEXT";
     public static final String ACTION_FINISH = "ACTION_FINISH";
+    public static final String ACTION_FINISH_COMPLETE = "ACTION_FINISH_COMPLETE";
 
     private static final int NEXT_PAGE_INDEX = 2;
     private final CompositeDisposable disposables = new CompositeDisposable();
@@ -143,7 +144,7 @@ public class OnboardingFragment extends Fragment {
             }
 
             private void onFinish(Context context, OnboardingData data) {
-                context.sendBroadcast(new Intent(Onboarding.ACTION_FINISH_COMPLETE));
+                context.sendBroadcast(new Intent(ACTION_FINISH_COMPLETE));
             }
         };
     }
