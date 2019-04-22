@@ -6,6 +6,7 @@ import com.functional.curry.RxBiFunction;
 import com.functional.curry.RxFunction3;
 import com.functional.curry.RxPredicate;
 import com.wasla.onboarding.domain.repositories.OnboardingRepository;
+import com.wasla.onboarding.entities.InternalSdk;
 import com.wasla.onboarding.entities.InvalidOnboardingDataException;
 import com.wasla.onboarding.entities.OnboardingData;
 
@@ -13,6 +14,7 @@ import androidx.annotation.RestrictTo;
 import io.reactivex.Maybe;
 import io.reactivex.subjects.BehaviorSubject;
 
+@InternalSdk
 public class OnboardingDataSaverUseCase implements
         RxFunction3<OnboardingRepository, BehaviorSubject<Boolean>, OnboardingData, Maybe<OnboardingData>> {
 

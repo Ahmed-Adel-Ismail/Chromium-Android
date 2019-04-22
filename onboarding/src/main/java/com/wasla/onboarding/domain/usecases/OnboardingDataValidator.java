@@ -1,9 +1,11 @@
 package com.wasla.onboarding.domain.usecases;
 
 import com.functional.curry.RxPredicate;
+import com.wasla.onboarding.entities.InternalSdk;
 import com.wasla.onboarding.entities.OnboardingData;
 
-public class OnboardingDataValidator implements RxPredicate<OnboardingData> {
+@InternalSdk
+class OnboardingDataValidator implements RxPredicate<OnboardingData> {
 
     @Override
     public boolean test(OnboardingData data) {
