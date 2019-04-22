@@ -21,7 +21,6 @@ import com.wasla.login.R;
 import com.wasla.onboarding.domain.usecases.OnboardingDataSaverUseCase;
 import com.wasla.onboarding.entities.InternalSdk;
 import com.wasla.onboarding.entities.OnboardingData;
-import com.wasla.onboarding.integration.Onboarding;
 
 import org.jetbrains.annotations.NotNull;
 

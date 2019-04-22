@@ -46,7 +46,8 @@ class PagerAdapter extends FragmentStatePagerAdapter {
         try{
             super.restoreState(state, loader);
         }catch (NullPointerException e){
-            // eat exception
+            // eat exception to avoid crash while restoring state
+            // there is no state required for this adapter
         }
     }
 }
