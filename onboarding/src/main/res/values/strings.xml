@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">login</string>
+    <string name="first_name">First name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="last_name">Last name</string>
+    <string name="next">Next</string>
+    <string name="phone_number">Phone number</string>
+    <string name="finish">Finish</string>
+</resources>
